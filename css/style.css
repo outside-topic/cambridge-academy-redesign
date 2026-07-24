@@ -285,18 +285,7 @@ BUTTONS
   transform: translateY(-2px)
 }
 
-.btn-hero-ghost {
-  background: transparent;
-  color: var(--white);
-  border-color: rgba(255, 255, 255, .35)
-}
 
-.btn-hero-ghost:hover {
-  background: var(--white);
-  color: var(--primary);
-  border-color: var(--white);
-  transform: translateY(-2px)
-}
 
 .btn-cta-ghost {
   background: transparent;
@@ -1020,28 +1009,7 @@ HERO SECTION
   border-radius: 5px
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 44px;
-  right: 44px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, .4);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase
-}
 
-.scroll-line {
-  width: 1px;
-  height: 50px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, .5), transparent);
-  animation: scrollPulse 2.2s ease-in-out infinite
-}
 
 @keyframes scrollPulse {
 
@@ -4859,22 +4827,6 @@ ASSESSMENT SECTION
   border-color: transparent;
 }
 
-.assessment-grid-icon {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, var(--primary), rgba(var(--primary-rgb), 0.8));
-  border-radius: var(--r-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  transition: transform var(--tr);
-}
-
-.assessment-grid-icon i {
-  font-size: 22px;
-  color: var(--white);
-}
 
 .assessment-grid-item:hover .assessment-grid-icon {
   transform: scale(1.08) rotate(-3deg);
@@ -4895,31 +4847,13 @@ ASSESSMENT SECTION
   margin: 0;
 }
 
-/*=====================================
-CTA SECTION
-=====================================*/
+
 /* Newsletter styles loaded from contact.css */
 
 /*=====================================
 RESPONSIVE
 =====================================*/
-@media (max-width: 1199.98px) {
-  .fs-hero {
-    margin-top: 68px;
-  }
 
-  .fs-hero-wave svg {
-    height: 52px;
-  }
-
-  .assessment-grid {
-    gap: 18px;
-  }
-
-  .assessment-frame-inner {
-    padding: 40px 36px;
-  }
-}
 
 @media (max-width: 991.98px) {
   .fs-hero {
@@ -5012,11 +4946,6 @@ RESPONSIVE
     padding: 20px 22px;
   }
 
-  .competency-num {
-    font-size: 26px;
-    top: 14px;
-    right: 16px;
-  }
 
   .competency-title {
     font-size: 16px;
@@ -5083,11 +5012,6 @@ RESPONSIVE
     gap: 14px;
   }
 
-  .assessment-grid-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: var(--r-sm);
-  }
 
   .assessment-grid-icon i {
     font-size: 17px;
@@ -6074,13 +5998,6 @@ HERO SECTION
   background: radial-gradient(circle, rgba(255, 255, 255, 0.03), transparent 70%);
 }
 
-.pgd-hero-deco-3 {
-  width: 180px;
-  height: 180px;
-  top: 25%;
-  left: 10%;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.04), transparent 70%);
-}
 
 .pgd-hero-content {
   position: relative;
@@ -6328,10 +6245,7 @@ DIPLOMA SECTION
   transition: opacity var(--tr);
 }
 
-.diploma-content-card:hover {
-  box-shadow: var(--sh-lg);
-  border-color: transparent;
-}
+
 
 .diploma-content-card:hover::before {
   opacity: 1;
@@ -6839,6 +6753,7 @@ HERO SECTION
   font-family: var(--fb);
   font-size: 13px;
   font-weight: 600;
+  
 }
 
 .mem-breadcrumb-item a {
@@ -6942,11 +6857,7 @@ GLOBAL NETWORKING
   pointer-events: none;
 }
 
-.networking-stat {
-  display: inline-flex;
-  margin-top: 28px;
-  transition: transform var(--tr);
-}
+
 
 .networking-stat:hover {
   transform: translateY(-3px);
@@ -7017,9 +6928,6 @@ ENGAGE WITH CAP
   pointer-events: none;
 }
 
-.engage-visual {
-  position: relative;
-}
 
 .engage-float-icon {
   position: absolute;
@@ -7410,41 +7318,11 @@ HERO SECTION
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
-.mp-hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    line-height: 0;
-}
-
-.mp-hero-wave svg {
-    width: 100%;
-    height: 65px;
-    display: block;
-}
 
 /*=====================================
 MEMBERSHIP PROCESS
 =====================================*/
-.process-section {
-    padding: 120px 0 130px;
-    background: var(--white);
-    position: relative;
-    overflow: hidden;
-}
 
-.process-deco-1 {
-    position: absolute;
-    top: -60px;
-    right: -40px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: rgba(var(--primary-rgb), 0.02);
-    pointer-events: none;
-}
 
 .process-deco-2 {
     position: absolute;
@@ -7859,10 +7737,6 @@ RESPONSIVE
     }
 
     .process-section {
-        padding: 70px 0 80px;
-    }
-
-    .faq-section {
         padding: 70px 0 80px;
     }
 
