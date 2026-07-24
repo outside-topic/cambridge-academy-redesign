@@ -472,331 +472,465 @@ KEYBOARD ACCESSIBILITY
 /*=====================================
 NAVBAR — Force Scrolled on Inner Page
 =====================================*/
-        (function () {
-            var wrapper = document.getElementById('navbarWrapper');
-            if (!wrapper) return;
+(function () {
+    var wrapper = document.getElementById('navbarWrapper');
+    if (!wrapper) return;
 
-            wrapper.classList.add('scrolled');
+    wrapper.classList.add('scrolled');
 
-            var collapse = document.getElementById('navbarContent');
-            if (!collapse) return;
+    var collapse = document.getElementById('navbarContent');
+    if (!collapse) return;
 
-            collapse.addEventListener('show.bs.collapse', function () {
-                wrapper.classList.add('menu-open');
+    collapse.addEventListener('show.bs.collapse', function () {
+        wrapper.classList.add('menu-open');
+    });
+
+    collapse.addEventListener('hide.bs.collapse', function () {
+        wrapper.classList.remove('menu-open');
+    });
+})();
+
+/*=====================================
+DESKTOP DROPDOWN — Hover-to-Show
+=====================================*/
+(function () {
+    var desktopBreakpoint = 1200;
+
+    function setupHoverDropdowns() {
+        if (window.innerWidth < desktopBreakpoint) return;
+
+        var dropdowns = document.querySelectorAll('.navbar-nav > .dropdown');
+        dropdowns.forEach(function (dropdown) {
+            var timeout;
+
+            dropdown.addEventListener('mouseenter', function () {
+                clearTimeout(timeout);
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    var instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                    instance.show();
+                }
             });
 
-            collapse.addEventListener('hide.bs.collapse', function () {
-                wrapper.classList.remove('menu-open');
+            dropdown.addEventListener('mouseleave', function () {
+                timeout = setTimeout(function () {
+                    var toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        var instance = bootstrap.Dropdown.getInstance(toggle);
+                        if (instance) instance.hide();
+                    }
+                }, 160);
             });
-        })();
+        });
+    }
 
-        /*=====================================
-        DESKTOP DROPDOWN — Hover-to-Show
-        =====================================*/
-        (function () {
-            var desktopBreakpoint = 1200;
+    setupHoverDropdowns();
 
-            function setupHoverDropdowns() {
-                if (window.innerWidth < desktopBreakpoint) return;
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setupHoverDropdowns, 300);
+    });
+})();
 
-                var dropdowns = document.querySelectorAll('.navbar-nav > .dropdown');
-                dropdowns.forEach(function (dropdown) {
-                    var timeout;
+/*=====================================
+LEVEL PROGRESS BARS — Animate on Scroll
+=====================================*/
+(function () {
+    var levelCards = document.querySelectorAll('.level-card');
+    if (!levelCards.length) return;
 
-                    dropdown.addEventListener('mouseenter', function () {
-                        clearTimeout(timeout);
-                        var toggle = dropdown.querySelector('.dropdown-toggle');
-                        if (toggle) {
-                            var instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
-                            instance.show();
-                        }
-                    });
+    levelCards.forEach(function (card) {
+        var fill = card.querySelector('.level-bar-fill');
+        if (!fill) return;
 
-                    dropdown.addEventListener('mouseleave', function () {
-                        timeout = setTimeout(function () {
-                            var toggle = dropdown.querySelector('.dropdown-toggle');
-                            if (toggle) {
-                                var instance = bootstrap.Dropdown.getInstance(toggle);
-                                if (instance) instance.hide();
-                            }
-                        }, 160);
-                    });
-                });
+        var targetWidth = fill.style.width;
+        fill.style.width = '0%';
+        fill.style.setProperty('--bar-width', targetWidth);
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var fill = entry.target.querySelector('.level-bar-fill');
+                if (fill) {
+                    var target = fill.style.getPropertyValue('--bar-width');
+                    /* Small delay for staggered effect */
+                    var delay = parseInt(entry.target.closest('[data-delay]')?.dataset.delay || 0, 10);
+                    setTimeout(function () {
+                        fill.style.width = target;
+                    }, delay + 400);
+                }
+                observer.unobserve(entry.target);
             }
+        });
+    }, { threshold: 0.3 });
 
-            setupHoverDropdowns();
+    levelCards.forEach(function (card) { observer.observe(card); });
+})();
 
-            var resizeTimer;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(setupHoverDropdowns, 300);
-            });
-        })();
+/*=====================================
+SCROLL REVEAL
+=====================================*/
+(function () {
+    var elements = document.querySelectorAll('[data-reveal]');
+    if (!elements.length) return;
 
-        /*=====================================
-        LEVEL PROGRESS BARS — Animate on Scroll
-        =====================================*/
-        (function () {
-            var levelCards = document.querySelectorAll('.level-card');
-            if (!levelCards.length) return;
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var delay = parseInt(entry.target.dataset.delay || 0, 10);
+                setTimeout(function () {
+                    entry.target.classList.add('revealed');
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-            levelCards.forEach(function (card) {
-                var fill = card.querySelector('.level-bar-fill');
-                if (!fill) return;
+    elements.forEach(function (el) { observer.observe(el); });
+})();
 
-                var targetWidth = fill.style.width;
-                fill.style.width = '0%';
-                fill.style.setProperty('--bar-width', targetWidth);
-            });
+/*=====================================
+BACK TO TOP
+=====================================*/
+(function () {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
 
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var fill = entry.target.querySelector('.level-bar-fill');
-                        if (fill) {
-                            var target = fill.style.getPropertyValue('--bar-width');
-                            /* Small delay for staggered effect */
-                            var delay = parseInt(entry.target.closest('[data-delay]')?.dataset.delay || 0, 10);
-                            setTimeout(function () {
-                                fill.style.width = target;
-                            }, delay + 400);
-                        }
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            levelCards.forEach(function (card) { observer.observe(card); });
-        })();
-
-        /*=====================================
-        SCROLL REVEAL
-        =====================================*/
-        (function () {
-            var elements = document.querySelectorAll('[data-reveal]');
-            if (!elements.length) return;
-
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var delay = parseInt(entry.target.dataset.delay || 0, 10);
-                        setTimeout(function () {
-                            entry.target.classList.add('revealed');
-                        }, delay);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-            elements.forEach(function (el) { observer.observe(el); });
-        })();
-
-        /*=====================================
-        BACK TO TOP
-        =====================================*/
-        (function () {
-            var btn = document.getElementById('backToTop');
-            if (!btn) return;
-            btn.addEventListener('click', function (e) {
+/*=====================================
+SMOOTH ANCHOR SCROLL
+=====================================*/
+(function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (href === '#') return;
+            var target = document.querySelector(href);
+            if (target) {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        })();
+                var top = target.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+})();
 
-        /*=====================================
-        SMOOTH ANCHOR SCROLL
-        =====================================*/
-        (function () {
-            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-                anchor.addEventListener('click', function (e) {
-                    var href = this.getAttribute('href');
-                    if (href === '#') return;
-                    var target = document.querySelector(href);
-                    if (target) {
-                        e.preventDefault();
-                        var top = target.getBoundingClientRect().top + window.scrollY - 80;
-                        window.scrollTo({ top: top, behavior: 'smooth' });
-                    }
-                });
-            });
-        })();
-
-        /*=====================================
-        KEYBOARD ACCESSIBILITY
-        =====================================*/
-        (function () {
-            document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
-                toggle.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggle.click();
-                    }
-                });
-            });
-        })();
+/*=====================================
+KEYBOARD ACCESSIBILITY
+=====================================*/
+(function () {
+    document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle.click();
+            }
+        });
+    });
+})();
 // Cap Professional sCredentioals end
 
 // CAP Function Specialist start
 /*=====================================
 NAVBAR — Force Scrolled on Inner Page
 =====================================*/
-        (function () {
-            var wrapper = document.getElementById('navbarWrapper');
-            if (!wrapper) return;
+(function () {
+    var wrapper = document.getElementById('navbarWrapper');
+    if (!wrapper) return;
 
-            wrapper.classList.add('scrolled');
+    wrapper.classList.add('scrolled');
 
-            var collapse = document.getElementById('navbarContent');
-            if (!collapse) return;
+    var collapse = document.getElementById('navbarContent');
+    if (!collapse) return;
 
-            collapse.addEventListener('show.bs.collapse', function () {
-                wrapper.classList.add('menu-open');
+    collapse.addEventListener('show.bs.collapse', function () {
+        wrapper.classList.add('menu-open');
+    });
+
+    collapse.addEventListener('hide.bs.collapse', function () {
+        wrapper.classList.remove('menu-open');
+    });
+})();
+
+/*=====================================
+DESKTOP DROPDOWN — Hover-to-Show
+=====================================*/
+(function () {
+    var desktopBreakpoint = 1200;
+
+    function setupHoverDropdowns() {
+        if (window.innerWidth < desktopBreakpoint) return;
+
+        var dropdowns = document.querySelectorAll('.navbar-nav > .dropdown');
+        dropdowns.forEach(function (dropdown) {
+            var timeout;
+
+            dropdown.addEventListener('mouseenter', function () {
+                clearTimeout(timeout);
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    var instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                    instance.show();
+                }
             });
 
-            collapse.addEventListener('hide.bs.collapse', function () {
-                wrapper.classList.remove('menu-open');
+            dropdown.addEventListener('mouseleave', function () {
+                timeout = setTimeout(function () {
+                    var toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        var instance = bootstrap.Dropdown.getInstance(toggle);
+                        if (instance) instance.hide();
+                    }
+                }, 160);
             });
-        })();
+        });
+    }
 
-        /*=====================================
-        DESKTOP DROPDOWN — Hover-to-Show
-        =====================================*/
-        (function () {
-            var desktopBreakpoint = 1200;
+    setupHoverDropdowns();
 
-            function setupHoverDropdowns() {
-                if (window.innerWidth < desktopBreakpoint) return;
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setupHoverDropdowns, 300);
+    });
+})();
 
-                var dropdowns = document.querySelectorAll('.navbar-nav > .dropdown');
-                dropdowns.forEach(function (dropdown) {
-                    var timeout;
+/*=====================================
+SCROLL REVEAL
+=====================================*/
+(function () {
+    var elements = document.querySelectorAll('[data-reveal]');
+    if (!elements.length) return;
 
-                    dropdown.addEventListener('mouseenter', function () {
-                        clearTimeout(timeout);
-                        var toggle = dropdown.querySelector('.dropdown-toggle');
-                        if (toggle) {
-                            var instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
-                            instance.show();
-                        }
-                    });
-
-                    dropdown.addEventListener('mouseleave', function () {
-                        timeout = setTimeout(function () {
-                            var toggle = dropdown.querySelector('.dropdown-toggle');
-                            if (toggle) {
-                                var instance = bootstrap.Dropdown.getInstance(toggle);
-                                if (instance) instance.hide();
-                            }
-                        }, 160);
-                    });
-                });
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var delay = parseInt(entry.target.dataset.delay || 0, 10);
+                setTimeout(function () {
+                    entry.target.classList.add('revealed');
+                }, delay);
+                observer.unobserve(entry.target);
             }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-            setupHoverDropdowns();
+    elements.forEach(function (el) { observer.observe(el); });
+})();
 
-            var resizeTimer;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(setupHoverDropdowns, 300);
-            });
-        })();
+/*=====================================
+COMPETENCY DOT PULSE — Subtle Animation
+=====================================*/
+(function () {
+    var activeDot = document.querySelector('.competency-dot--active');
+    if (!activeDot) return;
 
-        /*=====================================
-        SCROLL REVEAL
-        =====================================*/
-        (function () {
-            var elements = document.querySelectorAll('[data-reveal]');
-            if (!elements.length) return;
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                activeDot.style.animation = 'dotPulse 2.5s ease-in-out infinite';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
 
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var delay = parseInt(entry.target.dataset.delay || 0, 10);
-                        setTimeout(function () {
-                            entry.target.classList.add('revealed');
-                        }, delay);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    var section = document.getElementById('competencySection');
+    if (section) observer.observe(section);
 
-            elements.forEach(function (el) { observer.observe(el); });
-        })();
+    /* Inject keyframes */
+    var style = document.createElement('style');
+    style.textContent = '@keyframes dotPulse{0%,100%{box-shadow:0 0 0 2px var(--accent),0 0 0 6px rgba(247,126,6,.15)}50%{box-shadow:0 0 0 2px var(--accent),0 0 0 12px rgba(247,126,6,0)}}';
+    document.head.appendChild(style);
+})();
 
-        /*=====================================
-        COMPETENCY DOT PULSE — Subtle Animation
-        =====================================*/
-        (function () {
-            var activeDot = document.querySelector('.competency-dot--active');
-            if (!activeDot) return;
+/*=====================================
+ASSESSMENT FRAME — Shimmer Accent Bar
+=====================================*/
+(function () {
+    /* Shimmer animation is CSS-driven — no JS needed */
+    /* This block reserved for any future JS enhancements */
+})();
 
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        activeDot.style.animation = 'dotPulse 2.5s ease-in-out infinite';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
+/*=====================================
+BACK TO TOP
+=====================================*/
+(function () {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
 
-            var section = document.getElementById('competencySection');
-            if (section) observer.observe(section);
-
-            /* Inject keyframes */
-            var style = document.createElement('style');
-            style.textContent = '@keyframes dotPulse{0%,100%{box-shadow:0 0 0 2px var(--accent),0 0 0 6px rgba(247,126,6,.15)}50%{box-shadow:0 0 0 2px var(--accent),0 0 0 12px rgba(247,126,6,0)}}';
-            document.head.appendChild(style);
-        })();
-
-        /*=====================================
-        ASSESSMENT FRAME — Shimmer Accent Bar
-        =====================================*/
-        (function () {
-            /* Shimmer animation is CSS-driven — no JS needed */
-            /* This block reserved for any future JS enhancements */
-        })();
-
-        /*=====================================
-        BACK TO TOP
-        =====================================*/
-        (function () {
-            var btn = document.getElementById('backToTop');
-            if (!btn) return;
-            btn.addEventListener('click', function (e) {
+/*=====================================
+SMOOTH ANCHOR SCROLL
+=====================================*/
+(function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (href === '#') return;
+            var target = document.querySelector(href);
+            if (target) {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        })();
+                var top = target.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+})();
 
-        /*=====================================
-        SMOOTH ANCHOR SCROLL
-        =====================================*/
-        (function () {
-            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-                anchor.addEventListener('click', function (e) {
-                    var href = this.getAttribute('href');
-                    if (href === '#') return;
-                    var target = document.querySelector(href);
-                    if (target) {
-                        e.preventDefault();
-                        var top = target.getBoundingClientRect().top + window.scrollY - 80;
-                        window.scrollTo({ top: top, behavior: 'smooth' });
-                    }
-                });
-            });
-        })();
-
-        /*=====================================
-        KEYBOARD ACCESSIBILITY
-        =====================================*/
-        (function () {
-            document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
-                toggle.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggle.click();
-                    }
-                });
-            });
-        })();
+/*=====================================
+KEYBOARD ACCESSIBILITY
+=====================================*/
+(function () {
+    document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle.click();
+            }
+        });
+    });
+})();
 // CAP Function Specialist end
+
+
+
+// CAP Membershipp option start
+/*=====================================
+NAVBAR — Force Scrolled on Inner Page
+=====================================*/
+(function () {
+    var wrapper = document.getElementById('navbarWrapper');
+    if (!wrapper) return;
+
+    wrapper.classList.add('scrolled');
+
+    var collapse = document.getElementById('navbarContent');
+    if (!collapse) return;
+
+    collapse.addEventListener('show.bs.collapse', function () {
+        wrapper.classList.add('menu-open');
+    });
+
+    collapse.addEventListener('hide.bs.collapse', function () {
+        wrapper.classList.remove('menu-open');
+    });
+})();
+
+/*=====================================
+DESKTOP DROPDOWN — Hover-to-Show
+=====================================*/
+(function () {
+    var desktopBreakpoint = 1200;
+
+    function setupHoverDropdowns() {
+        if (window.innerWidth < desktopBreakpoint) return;
+
+        var dropdowns = document.querySelectorAll('.navbar-nav > .dropdown');
+        dropdowns.forEach(function (dropdown) {
+            var timeout;
+
+            dropdown.addEventListener('mouseenter', function () {
+                clearTimeout(timeout);
+                var toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    var instance = bootstrap.Dropdown.getOrCreateInstance(toggle);
+                    instance.show();
+                }
+            });
+
+            dropdown.addEventListener('mouseleave', function () {
+                timeout = setTimeout(function () {
+                    var toggle = dropdown.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        var instance = bootstrap.Dropdown.getInstance(toggle);
+                        if (instance) instance.hide();
+                    }
+                }, 160);
+            });
+        });
+    }
+
+    setupHoverDropdowns();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setupHoverDropdowns, 300);
+    });
+})();
+
+/*=====================================
+SCROLL REVEAL
+=====================================*/
+(function () {
+    var elements = document.querySelectorAll('[data-reveal]');
+    if (!elements.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var delay = parseInt(entry.target.dataset.delay || 0, 10);
+                setTimeout(function () {
+                    entry.target.classList.add('revealed');
+                }, delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    elements.forEach(function (el) { observer.observe(el); });
+})();
+
+/*=====================================
+BACK TO TOP
+=====================================*/
+(function () {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+
+/*=====================================
+SMOOTH ANCHOR SCROLL
+=====================================*/
+(function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (href === '#') return;
+            var target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                var top = target.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+        });
+    });
+})();
+
+/*=====================================
+KEYBOARD ACCESSIBILITY
+=====================================*/
+(function () {
+    document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle.click();
+            }
+        });
+    });
+})();
+// CAP Membershipp option end
