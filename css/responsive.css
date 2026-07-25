@@ -1,0 +1,1641 @@
+/*=====================================
+RESPONSIVE
+=====================================*/
+@media(max-width:1199.98px) {
+  .testimonial-card {
+    flex: 0 0 calc(50% - 14px)
+  }
+
+  .section-image {
+    height: 360px
+  }
+
+  .president-img {
+    height: 340px
+  }
+
+
+  .stat-item::after {
+    display: none
+  }
+
+  .pp-content-section {
+    padding: 44px 40px 48px;
+  }
+
+  .pp-content {
+    padding: 36px 32px 40px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .pp-section {
+    padding: 40px 0 36px;
+    scroll-margin-top: -50px;
+    padding-top: 42px;
+  }
+
+  .pp-section-header {
+    margin-bottom: 20px;
+  }
+
+  .pp-subsection {
+    margin-bottom: 28px;
+  }
+
+  .pp-toc {
+    margin-bottom: 32px;
+  }
+
+  .pp-toc-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pp-toc-link {
+    padding: 7px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .pp-toc-num {
+    font-size: 10px;
+  }
+
+  .pp-toc-header {
+    margin-bottom: 14px;
+  }
+
+  .pp-toc-toggle-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .pp-toc-mobile-toggle {
+    display: flex;
+  }
+
+  .pp-toc-mobile-toggle:hover {
+    border-color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.04);
+  }
+
+  .pp-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .pp-toc-body.show {
+    position: relative;
+  }
+
+  .pp-toc-body:not(.show) {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease-out), opacity 0.3s ease;
+  }
+
+  .pp-toc-body.show {
+    max-height: 100vh;
+    opacity: 1;
+  }
+
+  .app-hero-wave svg {
+    height: 48px;
+  }
+
+  .form-card-header {
+    padding: 40px 40px 36px;
+  }
+
+  .form-card-header::after {
+    left: 40px;
+    right: 40px;
+  }
+
+  .app-form {
+    padding: 36px 40px 40px;
+  }
+
+  .mp-hero-wave svg {
+    height: 52px;
+  }
+
+  .process-connector-track {
+    left: 8%;
+    right: 8%;
+  }
+
+  .mem-hero-wave svg {
+    height: 52px;
+  }
+
+  .engage-glass {
+    padding: 40px;
+  }
+
+  .pgd-hero-wave svg {
+    height: 52px;
+  }
+
+  .prof-edu-glass {
+    padding: 40px;
+  }
+
+  .masters-hero-img-wrap {
+    height: 320px;
+  }
+
+  .masters-hero-body {
+    padding: 40px 36px 44px;
+  }
+
+  .wcc-hero-wave svg {
+    height: 52px;
+  }
+
+  .steps-track {
+    left: 8%;
+    right: 8%;
+  }
+
+  .bento-card-img-wrap {
+    height: 240px;
+  }
+
+  .prof-hero {
+    margin-top: 68px;
+  }
+
+  .prof-hero-wave svg {
+    height: 52px;
+  }
+
+  .why-cap-float-card {
+    bottom: -12px;
+    left: -8px;
+    padding: 18px 22px;
+  }
+
+  .why-cap-float-number {
+    font-size: 22px;
+  }
+
+  .why-cap-float-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .why-cap-float-icon i {
+    font-size: 19px;
+  }
+
+  .contact-hero {
+    margin-top: 68px;
+  }
+
+  .contact-hero-wave svg {
+    height: 55px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:991.98px) {
+  .section-image {
+    height: 300px
+  }
+
+  .president-card-inner {
+    padding: 32px
+  }
+
+  .president-img {
+    height: 280px
+  }
+
+  .president-frame {
+    display: none
+  }
+
+  .pp-content-section {
+    padding: 60px 0 80px;
+  }
+
+  .pp-content {
+    padding: 36px 28px 40px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .pp-section {
+    padding: 36px 0 32px;
+    scroll-margin-top: -40px;
+    padding-top: 42px;
+  }
+
+  .pp-section-header {
+    margin-bottom: 16px;
+  }
+
+  .pp-subsection {
+    margin-bottom: 22px;
+  }
+
+  .pp-toc-list li {
+    font-size: 11px;
+  }
+
+  .pp-toc-header {
+    margin-bottom: 14px;
+  }
+
+  .pp-toc-toggle-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .pp-toc-mobile-toggle:hover {
+    display: flex;
+  }
+
+  .pp-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .form-section {
+    padding: 80px 0 90px;
+  }
+
+  .form-card-header {
+    padding: 36px 32px 32px;
+  }
+
+  .form-card-header::after {
+    left: 32px;
+    right: 32px;
+  }
+
+  .app-form {
+    padding: 32px;
+  }
+
+  .form-card-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .form-card-icon i {
+    font-size: 26px;
+  }
+
+  .form-card-title {
+    font-size: 28px;
+  }
+
+  .process-section {
+    padding: 90px 0 100px;
+  }
+
+  .faq-section {
+    padding: 90px 0 100px;
+  }
+
+  .process-connector-track {
+    display: none;
+  }
+
+  .process-card {
+    text-align: left;
+  }
+
+  .process-node {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .process-ring {
+    display: none;
+  }
+
+  .process-icon-wrap {
+    margin: 0 0 16px;
+  }
+
+  .networking-section {
+    padding: 80px 0 90px;
+  }
+
+  .engage-section {
+    padding: 80px 0;
+  }
+
+  .fees-section {
+    padding: 80px 0;
+  }
+
+  .engage-glass {
+    padding: 32px;
+  }
+
+  .fees-content-card {
+    padding: 36px 32px;
+  }
+
+  .exec-section {
+    padding: 80px 0 90px;
+  }
+
+  .prof-edu-section {
+    padding: 80px 0;
+  }
+
+  .diploma-section,
+  .profdip-section {
+    padding: 80px 0;
+  }
+
+  .masters-section {
+    padding: 80px 0 90px;
+  }
+
+  .prof-edu-glass {
+    padding: 32px;
+  }
+
+  .diploma-content-card {
+    padding: 36px 32px;
+  }
+
+  .profdip-content {
+    padding: 36px 32px;
+  }
+
+  .masters-hero-img-wrap {
+    height: 280px;
+  }
+
+  .masters-hero-body {
+    padding: 36px 28px 40px;
+  }
+
+  .intro-section {
+    padding: 90px 0 80px;
+  }
+
+  .features-section {
+    padding: 80px 0;
+  }
+
+  .steps-section {
+    padding: 90px 0 80px;
+  }
+
+  .bento-card-img-wrap {
+    height: 280px;
+  }
+
+  .bento-card-img-wrap--sm {
+    height: 220px;
+  }
+
+  .steps-track {
+    display: none;
+  }
+
+  .step-card {
+    text-align: left;
+  }
+
+  .step-node {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .step-ring {
+    display: none;
+  }
+
+  .prof-hero {
+    min-height: 42vh;
+    margin-top: 64px;
+  }
+
+  .what-credential-section {
+    padding: 80px 0 90px;
+  }
+
+  .type-card-image-wrap {
+    height: 220px;
+  }
+
+  .level-card {
+    padding: 28px 24px 24px;
+  }
+
+  .level-number {
+    font-size: 40px;
+  }
+
+  .contact-hero {
+    min-height: 45vh;
+    margin-top: 64px;
+  }
+
+  .contact-info-section {
+    padding: 80px 0 90px;
+  }
+
+  .contact-details-col {
+    padding: 10px 0 0;
+  }
+
+  .subscribe-section {
+    padding: 90px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:767.98px) {
+
+  .features-section,
+  .credentials-section,
+  .accreditation-section,
+  .testimonials-section,
+  .president-section,
+  .news-section,
+  .cta-section {
+    padding: 80px 0
+  }
+
+  .stats-section {
+    padding: 48px 0
+  }
+
+  .hero-content {
+    padding: 110px 0 80px
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center
+  }
+
+  .hero-controls {
+    bottom: 30px
+  }
+
+  .section-image {
+    height: 260px
+  }
+
+  .president-card-inner {
+    padding: 24px
+  }
+
+  .president-img {
+    height: 240px
+  }
+
+  .testimonial-card {
+    flex: 0 0 calc(100%)
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center
+  }
+
+  .image-border-accent {
+    display: none
+  }
+
+  .pp-content {
+    padding: 24px 20px 28px;
+  }
+
+  .pp-section {
+    padding: 32px 0 28px;
+    scroll-margin-top: -32px;
+    padding-top: 36px;
+  }
+
+  .pp-section-header {
+    margin-bottom: 12px;
+  }
+
+  .pp-subsection {
+    margin-bottom: 16px;
+  }
+
+
+  .pp-toc-list li {
+    font-size: 10px;
+  }
+
+  .app-hero-content {
+    padding: 28px 0 48px;
+  }
+
+  .app-hero-wave svg {
+    height: 38px;
+  }
+
+  .form-section {
+    padding: 60px 0 70px;
+  }
+
+  .form-card-header {
+    padding: 32px 24px 28px;
+  }
+
+  .form-card-header::after {
+    left: 24px;
+    right: 24px;
+  }
+
+  .app-form {
+    padding: 24px;
+  }
+
+  .form-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--md);
+  }
+
+  .form-card-icon i {
+    font-size: 22px;
+  }
+
+  .form-card-title {
+    font-size: 24px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .file-upload-zone {
+    padding: 22px 16px;
+  }
+
+  .file-upload-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--r-sm);
+  }
+
+  .file-upload-icon i {
+    font-size: 19px;
+  }
+
+  .file-upload-text {
+    font-size: 13px;
+  }
+
+  .form-submit-row {
+    margin-top: 28px;
+    padding-top: 28px;
+  }
+
+  .mp-hero-content {
+    padding: 28px 0 50px;
+  }
+
+  .mp-hero-wave svg {
+    height: 38px;
+  }
+
+  .process-section {
+    padding: 70px 0 80px;
+  }
+
+  .faq-toggle {
+    padding: 18px 22px;
+  }
+
+  .faq-q {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    padding: 0 22px 20px;
+  }
+
+  .process-icon-wrap {
+    width: 60px;
+    height: 60px;
+  }
+
+  .process-icon-wrap i {
+    font-size: 24px;
+  }
+
+  .process-title {
+    font-size: 17px;
+  }
+
+  .process-desc {
+    font-size: 13px;
+  }
+
+  .process-num {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .mem-hero-content {
+    padding: 28px 0 50px;
+  }
+
+  .mem-hero-wave svg {
+    height: 38px;
+  }
+
+  .networking-section {
+    padding: 60px 0 70px;
+  }
+
+  .engage-section {
+    padding: 60px 0;
+  }
+
+  .fees-section {
+    padding: 60px 0;
+  }
+
+  .engage-glass {
+    padding: 24px;
+  }
+
+  .engage-float-icon {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    display: inline-flex;
+    margin-top: 16px;
+  }
+
+  .fees-content-card {
+    padding: 28px 24px;
+  }
+
+  .pgd-hero-content {
+    padding: 28px 0 48px;
+  }
+
+  .pgd-hero-wave svg {
+    height: 38px;
+  }
+
+  .exec-section {
+    padding: 60px 0 70px;
+  }
+
+  .prof-edu-section {
+    padding: 60px 0;
+  }
+
+  .diploma-section,
+  .profdip-section {
+    padding: 60px 0;
+  }
+
+  .masters-section {
+    padding: 60px 0 70px;
+  }
+
+  .prof-edu-glass {
+    padding: 24px;
+  }
+
+
+  .diploma-content-card {
+    padding: 28px 24px;
+  }
+
+  .profdip-content {
+    padding: 28px 24px;
+  }
+
+  .masters-hero-img-wrap {
+    height: 220px;
+  }
+
+  .masters-hero-body {
+    padding: 28px 20px 32px;
+  }
+
+  .masters-cta-row {
+    flex-direction: column;
+  }
+
+  .masters-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wcc-hero-content {
+    padding: 28px 0 48px;
+  }
+
+  .wcc-hero-wave svg {
+    height: 38px;
+  }
+
+  .intro-section {
+    padding: 70px 0 60px;
+  }
+
+  .intro-lead {
+    font-size: 16px;
+  }
+
+  .intro-body {
+    font-size: 15px;
+  }
+
+  .features-section {
+    padding: 60px 0;
+  }
+
+  .steps-section {
+    padding: 70px 0 60px;
+  }
+
+  .bento-card-body {
+    padding: 24px;
+  }
+
+  .bento-card-title {
+    font-size: 20px;
+  }
+
+  .bento-card-img-wrap {
+    height: 220px;
+  }
+
+  .bento-card-img-wrap--sm {
+    height: 180px;
+  }
+
+  .step-title {
+    font-size: 17px;
+  }
+
+  .step-num {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .prof-hero {
+    min-height: 38vh;
+    margin-top: 58px;
+  }
+
+  .prof-hero-content {
+    padding: 28px 0 48px;
+  }
+
+  .prof-hero-wave svg {
+    height: 38px;
+  }
+
+  .what-credential-section {
+    padding: 60px 0 70px;
+  }
+
+
+  .type-card-image-wrap {
+    height: 200px;
+  }
+
+  .type-card-body {
+    padding: 24px;
+  }
+
+  .type-card-title {
+    font-size: 21px;
+  }
+
+  .why-cap-float-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 20px;
+  }
+
+  .level-card {
+    padding: 26px 22px 22px;
+  }
+
+  .level-number {
+    font-size: 36px;
+  }
+
+  .level-title {
+    font-size: 18px;
+  }
+
+  .contact-hero {
+    min-height: 40vh;
+    margin-top: 58px;
+  }
+
+  .contact-hero-content {
+    padding: 30px 0 50px;
+  }
+
+  .contact-hero-wave svg {
+    height: 40px;
+  }
+
+  .contact-info-section {
+    padding: 60px 0 70px;
+  }
+
+  .contact-email-card {
+    padding: 20px 22px;
+    gap: 14px;
+  }
+
+  .contact-email-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .contact-email-icon i {
+    font-size: 19px;
+  }
+
+  .contact-email-value {
+    font-size: 14px;
+  }
+
+  .contact-email-arrow {
+    display: none;
+  }
+
+
+
+  .subscribe-section {
+    padding: 70px 0;
+  }
+
+  .subscribe-form-wrap {
+    flex-direction: column;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .subscribe-desc {
+    margin-bottom: 32px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:575.98px) {
+  .stat-number {
+    font-size: 34px
+  }
+
+  .stat-suffix {
+    font-size: 26px
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: .5px
+  }
+
+  .feature-card {
+    padding: 28px 22px
+  }
+
+  .feature-featured {
+    padding: 32px 24px
+  }
+
+  .testimonial-card {
+    padding: 28px 22px
+  }
+
+  .news-img-wrap {
+    height: 200px
+  }
+
+  .hero-title {
+    font-size: 32px
+  }
+
+  .image-accent-box {
+    bottom: 12px;
+    left: 12px;
+    padding: 14px 18px
+  }
+
+  .accent-number {
+    font-size: 26px
+  }
+
+  .cta-section {
+    padding: 80px 0
+  }
+
+  .pp-section {
+    padding: 24px 0 20px;
+    scroll-margin-top: -24px;
+    padding-top: 28px;
+  }
+
+  .pp-section-header {
+    margin-bottom: 10px;
+  }
+
+  .pp-subsection {
+    margin-bottom: 14px;
+  }
+
+
+
+  .pp-toc-list li {
+    font-size: 9px;
+  }
+
+  .pp-toc-header {
+    margin-bottom: 12px;
+  }
+
+  .pp-toc-toggle-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .pp-toc-link {
+    padding: 6px 10px;
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  .pp-toc-num {
+    font-size: 9px;
+  }
+
+  .app-hero-title {
+    font-size: 30px;
+  }
+
+  .form-section {
+    padding: 48px 0 56px;
+  }
+
+  .form-card-header {
+    padding: 28px 20px 24px;
+  }
+
+  .form-card-header::after {
+    left: 20px;
+    right: 20px;
+  }
+
+  .app-form {
+    padding: 20px;
+  }
+
+  .form-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .form-card-icon i {
+    font-size: 20px;
+  }
+
+  .form-card-title {
+    font-size: 22px;
+  }
+
+  .form-card-desc {
+    font-size: 14px;
+  }
+
+  .form-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 11px 14px;
+  }
+
+  textarea.form-control {
+    min-height: 110px;
+  }
+
+  .file-upload-zone {
+    padding: 18px 12px;
+  }
+
+  .file-upload-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-sm);
+  }
+
+  .file-upload-icon i {
+    font-size: 17px;
+  }
+
+  .file-upload-text {
+    font-size: 12px;
+  }
+
+  .file-upload-hint {
+    font-size: 11px;
+  }
+
+  .file-upload-name {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+
+  .form-submit-row {
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+
+  .mp-hero-title {
+    font-size: 30px;
+  }
+
+  .process-section {
+    padding: 56px 0 60px;
+  }
+
+  .faq-section {
+    padding: 56px 0 60px;
+  }
+
+  .faq-toggle {
+    padding: 16px 18px;
+    gap: 12px;
+  }
+
+  .faq-q {
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    font-size: 13px;
+    padding: 0 18px 18px;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .faq-icon i {
+    font-size: 14px;
+  }
+
+  .process-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: var(--r-md);
+  }
+
+  .process-icon-wrap i {
+    font-size: 22px;
+  }
+
+  .process-num {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .process-title {
+    font-size: 16px;
+  }
+
+  .process-desc {
+    font-size: 13px;
+    padding: 0;
+  }
+
+  .mem-hero-title {
+    font-size: 30px;
+  }
+
+  .networking-section {
+    padding: 50px 0 56px;
+  }
+
+  .engage-section {
+    padding: 50px 0;
+  }
+
+  .fees-section {
+    padding: 50px 0;
+  }
+
+  .engage-glass {
+    padding: 20px;
+  }
+
+  .fees-content-card {
+    padding: 22px 18px;
+  }
+
+  .pgd-hero-title {
+    font-size: 30px;
+  }
+
+  .exec-section {
+    padding: 50px 0 56px;
+  }
+
+  .prof-edu-section {
+    padding: 50px 0;
+  }
+
+  .diploma-section,
+  .profdip-section {
+    padding: 50px 0;
+  }
+
+  .masters-section {
+    padding: 50px 0 56px;
+  }
+
+  .prof-edu-glass {
+    padding: 20px;
+  }
+
+  .diploma-content-card {
+    padding: 22px 18px;
+  }
+
+  .profdip-content {
+    padding: 22px 18px;
+  }
+
+  .masters-hero-img-wrap {
+    height: 180px;
+  }
+
+  .masters-hero-body {
+    padding: 24px 16px 28px;
+  }
+
+  .wcc-hero-title {
+    font-size: 30px;
+  }
+
+  .intro-section {
+    padding: 56px 0 50px;
+  }
+
+  .intro-lead {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .intro-body {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .features-section {
+    padding: 50px 0;
+  }
+
+  .steps-section {
+    padding: 56px 0 50px;
+  }
+
+
+  .bento-card-body {
+    padding: 20px;
+  }
+
+  .bento-card-title {
+    font-size: 19px;
+  }
+
+  .bento-card-desc {
+    font-size: 13px;
+  }
+
+  .bento-card-img-wrap {
+    height: 190px;
+  }
+
+  .bento-card-img-wrap--sm {
+    height: 160px;
+  }
+
+  .bento-card-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+
+  .bento-card-icon i {
+    font-size: 19px;
+  }
+
+  .step-node {
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  .step-title {
+    font-size: 16px;
+  }
+
+  .prof-hero {
+    min-height: 36vh;
+    margin-top: 54px;
+  }
+
+  .prof-hero-title {
+    font-size: 30px;
+  }
+
+  .type-card-image-wrap {
+    height: 180px;
+  }
+
+  .type-card-body {
+    padding: 20px;
+  }
+
+  .type-card-title {
+    font-size: 19px;
+  }
+
+
+
+  .level-card {
+    padding: 22px 18px 20px;
+  }
+
+  .level-number {
+    font-size: 32px;
+  }
+
+  .level-title {
+    font-size: 17px;
+  }
+
+  .level-desc {
+    font-size: 13px;
+  }
+
+  .level-card-top {
+    margin-bottom: 16px;
+  }
+
+  .contact-hero {
+    min-height: 38vh;
+    margin-top: 54px;
+  }
+
+  .contact-hero-title {
+    font-size: 32px;
+  }
+
+  .contact-hero-tag {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    padding: 6px 18px;
+  }
+
+  .contact-hero-desc {
+    font-size: 14px;
+  }
+
+  .contact-email-card {
+    padding: 18px 18px;
+    border-radius: var(--r-md);
+  }
+
+  .subscribe-heading {
+    font-size: 24px;
+  }
+
+  .subscribe-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+  }
+
+  .subscribe-input {
+    padding: 14px 16px 14px 46px;
+    font-size: 14px;
+  }
+
+  .subscribe-btn {
+    padding: 14px 24px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:399.98px) {
+  .hero-title {
+    font-size: 28px
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 14px
+  }
+
+  .section-heading {
+    font-size: 26px
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px
+  }
+
+  .feature-icon i {
+    font-size: 18px
+  }
+
+  .app-hero-title {
+    font-size: 26px;
+  }
+
+  .app-breadcrumb-item {
+    font-size: 11px;
+  }
+
+  .form-section {
+    padding: 40px 0 48px;
+  }
+
+  .form-card-header {
+    padding: 24px 16px 20px;
+  }
+
+  .form-card-header::after {
+    left: 16px;
+    right: 16px;
+  }
+
+  .app-form {
+    padding: 16px;
+  }
+
+  .form-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-card-icon i {
+    font-size: 18px;
+  }
+
+  .form-card-title {
+    font-size: 20px;
+  }
+
+  .form-control {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .file-upload-zone {
+    padding: 14px 10px;
+  }
+
+  .file-upload-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .file-upload-icon i {
+    font-size: 15px;
+  }
+
+  .mp-hero-title {
+    font-size: 26px;
+  }
+
+  .faq-q {
+    font-size: 14px;
+  }
+
+  .faq-answer {
+    font-size: 12px;
+    padding: 0 14px 16px;
+  }
+
+  .process-icon-wrap {
+    width: 48px;
+    height: 48px;
+  }
+
+  .process-icon-wrap i {
+    font-size: 20px;
+  }
+
+  .process-num {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .process-title {
+    font-size: 15px;
+  }
+
+  .mem-hero-title {
+    font-size: 26px;
+  }
+
+  .mem-breadcrumb-item {
+    font-size: 11px;
+  }
+
+  .engage-glass {
+    padding: 16px;
+  }
+
+  .fees-content-card {
+    padding: 18px 14px;
+  }
+
+  .pgd-hero-title {
+    font-size: 26px;
+  }
+
+  .pgd-breadcrumb-item {
+    font-size: 11px;
+  }
+
+  .prof-edu-glass {
+    padding: 16px;
+  }
+
+  .diploma-content-card {
+    padding: 18px 14px;
+  }
+
+  .profdip-content {
+    padding: 18px 14px;
+  }
+
+  .masters-hero-img-wrap {
+    height: 160px;
+  }
+
+  .masters-hero-body {
+    padding: 20px 14px 24px;
+  }
+
+  .wcc-hero-title {
+    font-size: 26px;
+  }
+
+  .wcc-breadcrumb-item {
+    font-size: 11px;
+  }
+
+  .bento-card-title {
+    font-size: 17px;
+  }
+
+  .bento-card-img-wrap {
+    height: 170px;
+  }
+
+  .bento-card-img-wrap--sm {
+    height: 140px;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .step-title {
+    font-size: 15px;
+  }
+
+  .prof-hero-title {
+    font-size: 26px;
+  }
+
+  .prof-breadcrumb-item {
+    font-size: 12px;
+  }
+
+  .type-card-title {
+    font-size: 18px;
+  }
+
+  .level-title {
+    font-size: 16px;
+  }
+
+  .level-number {
+    font-size: 28px;
+  }
+
+  .level-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .contact-hero-title {
+    font-size: 28px;
+  }
+
+  .contact-hero-tag {
+    font-size: 9px;
+    padding: 5px 14px;
+  }
+
+  .contact-email-value {
+    font-size: 13px;
+  }
+
+  .subscribe-heading {
+    font-size: 22px;
+  }
+}
