@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <!-- ========== NAVBAR ========== -->
+    <!-- Header -->
     <header class="navbar-wrapper" id="navbarWrapper">
         <section class="topnav_head">
             <div class="container">
@@ -29,8 +29,8 @@
                             <ul class="d-flex align-items-center mb-0">
                                 <li><a href="contact_us.html">Contact</a></li>
                                 <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="#">Log In</a></li>
+                                <li class="d-none"><a href="/blog">Blog</a></li>
+                                <li><a href="login.html">Log In</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,9 +39,10 @@
         </section>
         <nav class="navbar navbar-expand-xl" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <div class="brand-content">
-                        <img src="images/logo.png" class="img-fluid" alt="">
+                        <img src="https://cambridgeacademy.uk/contents/website/imgs/Cambridge-transparent.png"
+                            class="img-fluid" alt="">
                     </div>
                 </a>
 
@@ -55,7 +56,10 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -71,10 +75,7 @@
                                         Specialist</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://admin.cambridgeacademy.uk/">Verify</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown d-none">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">
                                 Education <i class="bi bi-chevron-down dd-arrow"></i>
@@ -83,7 +84,8 @@
                                 <li><a class="dropdown-item" href="why_choose_cambridge.html">Why Choose Cambridge</a>
                                 </li>
                                 <li><a class="dropdown-item" href="how_to_become_certified.html">How to Become
-                                        Certified</a></li>
+                                        Certified</a>
+                                </li>
                                 <li class="nav-item dropdown"><a class="dropdown-item dropdown-toggle" href="#"
                                         role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                                         aria-expanded="false">Executive Education</a>
@@ -94,24 +96,12 @@
                                                 Professional Diploma
                                             </a></li>
                                         <li><a class="dropdown-item" href="post_graduate_diploma.html">Masters
-                                                Program</a></li>
+                                                Program</a>
+                                        </li>
                                     </ul>
                                 </li>
 
 
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                data-bs-auto-close="outside" aria-expanded="false">
-                                Membership <i class="bi bi-chevron-down dd-arrow"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="cap_membership_option.html">Benefits of
-                                        Membership</a></li>
-                                <li><a class="dropdown-item" href="membership_process.html">Membership Process</a></li>
-                                <li><a class="dropdown-item" href="memebrship_application.html">Membership
-                                        Application</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -144,6 +134,21 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false">
+                                Membership <i class="bi bi-chevron-down dd-arrow"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="cap_membership_option.html">Benefits of
+                                        Membership</a>
+                                </li>
+                                <li><a class="dropdown-item" href="membership_process.html">Membership Process</a></li>
+                                <li><a class="dropdown-item" href="memebrship_application.html">Membership
+                                        Application</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" aria-expanded="false">
                                 Register <i class="bi bi-chevron-down dd-arrow"></i>
                             </a>
                             <ul class="dropdown-menu leftsided">
@@ -152,12 +157,10 @@
                                 <li><a class="dropdown-item" href="in_acc_apply.html">Accredited Centre</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://admin.cambridgeacademy.uk/">Verify</a>
+                        </li>
                     </ul>
-                    <div class="navbar-cta-mobile d-xl-none">
-                        <a href="#" class="btn btn-accent w-100 mb-3">Register Now <i class="bi bi-arrow-right"></i></a>
-                        <a href="#" class="btn btn-verify-mobile w-100"><i class="bi bi-patch-check-fill"></i> Verify
-                            Credentials</a>
-                    </div>
                 </div>
             </div>
         </nav>
