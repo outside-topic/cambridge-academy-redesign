@@ -1,12 +1,12 @@
 // Initialize Lenis
 const lenis = new Lenis({
-  autoRaf: true,
-  lerp: 0.1
+    autoRaf: true,
+    lerp: 0.1
 });
 
 // Listen for the scroll event and log the event data
 lenis.on('scroll', (e) => {
-  console.log(e);
+    console.log(e);
 });
 
 /*=====================================
@@ -345,22 +345,138 @@ UTILITY FUNCTIONS
 })();
 
 
-// Certified Proofessionals start 
+/*=====================================
+        STEPS CONNECTOR — Animate on Scroll
+        =====================================*/
+(function () {
+    var connector = document.getElementById('stepsConnector');
+    if (!connector) return;
 
-// Certified Proofessionals end 
+    var section = document.getElementById('stepsSection');
+    if (!section) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                connector.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+})();
+
+
+/*=====================================
+PROCESS CONNECTOR — Animate on Scroll
+=====================================*/
+(function () {
+    var fill = document.getElementById('processConnectorFill');
+    if (!fill) return;
+
+    var section = document.getElementById('processSection');
+    if (!section) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                fill.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+})();
 
 
 
-// Cap Professional sCredentioals start
 
-// Cap Professional sCredentioals end
+/*=====================================
+PASSWORD TOGGLE
+=====================================*/
+(function initPasswordToggle() {
+    var toggle = document.getElementById('passwordToggle');
+    var passwordInput = document.getElementById('password');
 
-// CAP Function Specialist start
+    if (!toggle || !passwordInput) return;
 
-// CAP Function Specialist end
+    toggle.addEventListener('click', function () {
+        var isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        toggle.classList.toggle('active', isPassword);
+
+        var label = isPassword ? 'Hide password' : 'Show password';
+        toggle.setAttribute('aria-label', label);
+    });
+})();
+
+/*=====================================
+FAQ ACCORDION — Premium Toggle
+=====================================*/
+(function () {
+    var toggles = document.querySelectorAll('.faq-toggle');
+
+    toggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            var item = this.closest('.faq-item');
+            var isOpen = item.classList.contains('faq-open');
+
+            /* Close all other items */
+            document.querySelectorAll('.faq-item.faq-open').forEach(function (openItem) {
+                if (openItem !== item) {
+                    openItem.classList.remove('faq-open');
+                    openItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            /* Toggle current */
+            if (isOpen) {
+                item.classList.remove('faq-open');
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('faq-open');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    /* Keyboard support */
+    toggles.forEach(function (toggle) {
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+})();
+
+
+/*=====================================
+PASSWORD TOGGLES
+=====================================*/
+(function initPasswordToggles() {
+    var toggles = [
+        { btn: 'passwordToggle', input: 'password', labelShow: 'Show password', labelHide: 'Hide password' },
+        { btn: 'confirmToggle', input: 'confirmPassword', labelShow: 'Show confirm password', labelHide: 'Hide confirm password' }
+    ];
+
+    toggles.forEach(function (config) {
+        var btn = document.getElementById(config.btn);
+        var input = document.getElementById(config.input);
+        if (!btn || !input) return;
+
+        btn.addEventListener('click', function () {
+            var show = input.type === 'password';
+            input.type = show ? 'text' : 'password';
+            btn.classList.toggle('active', show);
+            btn.setAttribute('aria-label', show ? config.labelHide : config.labelShow);
+            input.focus();
+        });
+    });
+})();
 
 
 
-// CAP Membershipp option start
-
-// CAP Membershipp option end
